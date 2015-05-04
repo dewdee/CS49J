@@ -6,8 +6,14 @@ public class Problem2 {
 		System.out.println(result);
 	}
 	public static int calcArray(int[] array, int n){
-		if(n == 0)
-			return array[n];
+		if(n == 0){
+			if(array[n] % 2 == 0){ //even
+				return (array[n] / 5);
+			}
+			else{ //odd
+				return (array[n] * 3 + 1);
+			}
+		}
 		else{
 			if(array[n] % 2 == 0){ //even
 				return (array[n] / 5) + calcArray(array, n - 1);

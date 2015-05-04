@@ -151,7 +151,7 @@ public class Problem3 {
 		Stack s = new Stack();
 		s.push(4);
 		s.push(3);
-		s.push(7);
+		s.push(7); // top-> bottom 7 3 4
 		int a = s.pop();
 		System.out.println("Popped: " + a);
 		System.out.println("Top of stack: " + s.getTop());
