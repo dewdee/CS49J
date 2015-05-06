@@ -4,9 +4,15 @@ public class BST{
 		root = null;
 	}
 	public boolean insert(Employee person){
-		root = insert(root, person);
-
-		System.out.println(person.getData() + " has been inserted into the tree.");
+		if(search(person) == null){
+			root = insert(root, person);
+			System.out.println(person.getData() + " has been inserted into the tree.");
+		}
+		else{
+			System.out.println("ID already taken by another employee.");
+			return false;
+		}
+		
 		return true;
 	}
 	private Node insert(Node leaf, Employee person){
@@ -24,8 +30,6 @@ public class BST{
 				leaf.setRight(insert(leaf.getRight(), person));
 				return leaf;
 			}
-			else //duplicate found
-				leaf.setData(person); //set with the same value
 		}
 		return leaf;
 	}
@@ -34,8 +38,9 @@ public class BST{
 			System.out.println("Tree is empty.");
 			return false;
 		}	
-		else if(search(person) != person){ //only values of 10-99 are allowed
-			System.out.println(person.getData() + " does not exist in the tree.");
+		else if(search(person) != person){
+			Employee temp = getClosestEmployee(person);
+			System.out.println(person.getData() + " does not exist in the tree, closest ID is: " + temp.getData());
 			return false;
 		}
 		else{
@@ -50,7 +55,7 @@ public class BST{
 		//looking for node
 		if(person.getID() < leaf.getEmployee().getID()){
 			leaf.setLeft(delete(leaf.getLeft(), person));
-			
+
 		}
 		else if (person.getID() > leaf.getEmployee().getID()){
 			leaf.setRight(delete(leaf.getRight(), person));
@@ -100,6 +105,12 @@ public class BST{
 		}
 		else
 			return null; //nothing
+	}
+	public Employee getClosestEmployee(Employee person){
+		return null;
+	}
+	public Employee getClosestEmployee(Node leaf, Employee person){
+		return null;
 	}
 	public Node getRoot(){
 		return root;

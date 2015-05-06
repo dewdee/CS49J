@@ -8,5 +8,7 @@ public class Assignment36 {
 		bst.insert(person);
 		person = new Employee(9, "David");
 		bst.insert(person);
+		person = new Employee(2, "David");
+		bst.insert(person);
 	}
 }
