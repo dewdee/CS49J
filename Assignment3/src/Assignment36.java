@@ -10,6 +10,7 @@ public class Assignment36 {
 		bst.insert(person);
 		person = new Employee(1, "Bob");
 		bst.insert(person);
+<<<<<<< HEAD
 		person = new Employee(4, "David");
 		
 		Employee s = bst.search(person);
@@ -17,5 +18,8 @@ public class Assignment36 {
 			s = bst.getClosestEmployee(person);
 		}
 		System.out.println(s.getData());
+=======
+		
+>>>>>>> 79aef4e99a1f66cdab2665d4425f573856b505f7
 	}
 }
