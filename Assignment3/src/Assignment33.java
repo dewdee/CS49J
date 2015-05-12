@@ -25,7 +25,7 @@ public class Assignment33 {
 		try{
 			FileReader reader = new FileReader(f);
 			BufferedReader in = new BufferedReader(reader);
-			String str;
+			//String str;
 			int i = 0;
 			int pi = 0;
 			while(i <= 10){
