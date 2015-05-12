@@ -1,3 +1,8 @@
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 class LLNode{
 	private LLNode next;
 	private int data;
@@ -69,16 +74,16 @@ class LinkedList{
 			throw new Exception("Nothing in the Linked List.");
 
 		LLNode walker = head;
-		if(index == 0){
+		//deleting the head node
+		if(index == 0)
 			walker = walker.getNext();
-		}
 		else{
 			int i = 1;
 			while(walker.getNext() != null && i < index){ //walk to index, unless index is at the end
 				walker = walker.getNext();
 				i++;
 			}
-			// 3 4 5 6, delete 4 
+
 			walker.setNext(walker.getNext().getNext());
 		}
 		size--;
@@ -86,18 +91,50 @@ class LinkedList{
 	public int getSize(){
 		return size;
 	}
-	public void toArray(){
+	public int[] toArray(){
+		int[] arr = new int[getSize()];
 
+		LLNode walker = head;
+		arr[0] = head.getData();
+		int i = 1;
+		while(walker.getNext() != null && i < getSize()){
+			walker = walker.getNext();
+			arr[i] = walker.getData();
+			i++;
+		}
+		return arr;
 	}
-	public void toSet(){
+	public Set<Integer> toSet() throws Exception{
+		if(getSize() == 0)
+			throw new Exception("Nothing in the Linked List.");
 
+		Set<Integer> newSet = new HashSet<Integer>();
+		LLNode walker = head;
+		newSet.add(walker.getData());
+		
+		while(walker.getNext() != null){
+			walker = walker.getNext();
+			newSet.add(walker.getData());
+		}
+
+		return newSet;
 	}
-	public void print(){
+	public void print() throws Exception{
+		if(getSize() == 0)
+			throw new Exception("Nothing in the Linked List.");
 
+		LLNode walker = head;
+
+		while(walker.getNext() != null){
+			System.out.println(walker.getData());
+			walker = walker.getNext();
+		}
+		if(walker.getNext() == null)
+			System.out.println(walker.getData());
 	}
 }
 public class Assignment35 {
-	public static void main(String[] args){
+	public static void main(String[] args) throws Exception{
 		LinkedList test = new LinkedList();
 
 		test.insert(2);
@@ -105,11 +142,16 @@ public class Assignment35 {
 		test.insert(1);
 		test.insert(7);
 		test.insert(4);
-		try{
-			test.delete(2);
+		test.delete(2);
+		test.print();
+		
+		System.out.println("Size: " + test.getSize());
+		int[] toArr = test.toArray();
+		Set<Integer> toSet = test.toSet();
+		
+		for(Iterator<Integer> it = toSet.iterator(); it.hasNext();){
+			System.out.print(it.next());
 		}
-		catch(Exception e){
-			System.out.println(e);
-		}
+		System.out.println(Arrays.toString(toArr));
 	}
 }

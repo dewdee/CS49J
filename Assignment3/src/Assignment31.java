@@ -21,7 +21,7 @@ public class Assignment31 {
 		input.close();
 	}
 	public static void parseInput(String input, Stack<String> operator, Stack<Integer> operand) throws Exception{
-		String[] tokens = input.split("\\s+");
+		String[] tokens = input.split("&^|\\s+");
 		int size = tokens.length;
 		//going backwards because of stack LIFO rule
 		for(int i = 0; i < size; i++){
@@ -67,14 +67,17 @@ public class Assignment31 {
 
 		return result; 
 	}
-	public static double calculate(Stack<String> operator, Stack<Integer> operand){
+	public static int calculate(Stack<String> operator, Stack<Integer> operand){
 		int result = 0;
 		
 		//there are more operands than operators, so we check until operator is empty
-		while(!operator.isEmpty()){
-			int first = operand.pop();
-			int second = operand.pop();
-			String op = operator.pop();
+		
+		//&& priority(operator.peek()) >= priority(token)
+		int first = operand.pop();
+		int second = operand.pop();
+		String op = operator.pop();
+		while(!operator.isEmpty() && precedence(operator.peek().charAt(0)) <= precedence(op.charAt(0))){	
+			;
 			result = operations(op, first, second);
 			//readd result to the bottom, so continues evaluating "left to right"
 			operand.push(result);
