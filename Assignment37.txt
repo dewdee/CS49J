@@ -1,0 +1,26 @@
+Answer the following questions:
+
+a. What is the difference between Iterator and ListIterator?
+Iterator can only travel in one direction, ListIterator can go backwards. ListIterator can also
+obtain index at any point, add a new value anywhere, and set a new value at the current iteration.
+ListIterator can only be used for Lists.
+
+b. When do you prefer to use a HashMap over a TreeMap?
+If we want the data to be sorted, a TreeMap is the best option, since HashMap iterating has no order.
+Also, depending on the hashing function and collision resolution, a HashMap might become slower to insert
+the larger the data set gets.
+
+c. "Iterator is a must to iterate over a list". Is it true or false? Explain.
+False, you can use a for loop, an enhanced for loop, or ListIterator to iterate through a list, although
+they are all identical to just iterate through.
+
+d. What is ConcurrentModificationException? When do you observe it? Why? How can you avoid it?
+The exception is thrown when a Collection is being modified while being iterated over. It basically
+says that modifying the object is not allowed. This is to guarantee that you keep track over exactly
+what is being deleted safely. We can avoid this exception by using Iterator, and remove the Iterator
+object.
+
+e. Are Hashtables different from HashMaps? Why?
+Yes. HashMaps are non-synchronized and not thread-safe, so it operates faster and uses less memory
+than a HashTable. HashMaps also allow one null key and any number of null values. Hashtables do not allow
+null keys or nulle values.
