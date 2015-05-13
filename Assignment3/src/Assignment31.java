@@ -90,3 +90,24 @@ public class Assignment31 {
 		return result; 
 	}
 }
+/* Test run 1
+*1 | 8 & 3
+1
+Test run 2
+2 & 3 & 4 | 1
+1
+
+Test run 3
+4 ^ 8 | 3 & 1 & 4
+12
+
+Test run 4
+5 ^ 3 ^ 4 & 1 & 10
+6
+
+Test run 5
+20 | 2 & 3 ^ 2
+20
+
+*/
+

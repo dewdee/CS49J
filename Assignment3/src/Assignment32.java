@@ -72,3 +72,57 @@ public class Assignment32 {
 		return line;
 	}
 }
+/*
+ * Given the location of the file: 
+C:\Users\Mike\Downloads\Desktop\digits_of_pi.txt
+Number of digits of pi to parse:
+100
+Give any number between 0-9
+3
+3 appears 11 times
+First position in which 3 appears: 9
+Last position in which 3 appears: 91
+
+Given the location of the file: 
+C:\Users\Mike\Downloads\Desktop\digits_of_pi.txt
+Number of digits of pi to parse:
+49
+Give any number between 0-9
+2
+2 appears 5 times
+First position in which 2 appears: 6
+Last position in which 2 appears: 33
+
+Given the location of the file: 
+C:\Users\Mike\Downloads\Desktop\digits_of_pi.txt
+Number of digits of pi to parse:
+345
+Give any number between 0-9
+7
+7 appears 23 times
+First position in which 7 appears: 13
+Last position in which 7 appears: 343
+
+Given the location of the file: 
+digits_of_pi.txt
+Number of digits of pi to parse:
+10000
+Give any number between 0-9
+8'
+Exception in thread "main" java.util.InputMismatchException
+	at java.util.Scanner.throwFor(Unknown Source)
+	at java.util.Scanner.next(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at java.util.Scanner.nextInt(Unknown Source)
+	at Assignment32.main(Assignment32.java:41)
+
+Given the location of the file: 
+digits_of_pi.txt
+Number of digits of pi to parse:
+99999
+Give any number between 0-9
+8
+8 appears 9978 times
+First position in which 8 appears: 11
+Last position in which 8 appears: 99986
+*/

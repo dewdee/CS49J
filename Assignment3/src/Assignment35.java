@@ -55,8 +55,8 @@ class LinkedList{
 		LLNode temp = new LLNode(data);
 		LLNode walker = head; //walker node to traverse through list
 
-		int i = 1; //index starts at 1, not 0
-		while(walker.getNext() != null && i <= index){ //walk to index, unless index is at the end
+		int i = 1;
+		while(walker.getNext() != null && i < (index - 1)){ //walk to index, unless index is at the end
 			walker = walker.getNext();
 			i++;
 		}
@@ -67,18 +67,18 @@ class LinkedList{
 		size++;
 	}
 	public void delete(int index) throws Exception{
-		if(index < 0 || index > size)
+		if(index < 1 || index > size)
 			throw new Exception("Index out of range.");
 		if(getSize() == 0)
 			throw new Exception("Nothing in the Linked List.");
 
 		LLNode walker = head;
 		//deleting the head node
-		if(index == 0)
+		if((index - 1) == 0)
 			walker = walker.getNext();
 		else{
 			int i = 1;
-			while(walker.getNext() != null && i < index){ //walk to index, unless index is at the end
+			while(walker.getNext() != null && i < (index - 1)){ //walk to index, unless index is at the end
 				walker = walker.getNext();
 				i++;
 			}
@@ -202,7 +202,7 @@ public class Assignment35 {
 					break;
 				case 5:
 					try{
-						System.out.print("List to array of size: " + list.getSize());
+						System.out.print("List to array of size " + list.getSize() + ": ");
 						int[] toArr = list.toArray();
 						for(int i = 0; i < toArr.length; i++)
 							System.out.print(toArr[i] + " ");
@@ -258,3 +258,139 @@ public class Assignment35 {
 		in.close();
 	}
 }
+/*
+ * 1. Add at first position.
+2. Add at kth position.
+3. Delete at kth position.
+4. Print size of the list.
+5. Convert list to array.
+6. Convert list to set.
+7. Print the list.
+Select an option: 1
+Data to add: 3
+Do you wish to continue (Type y or n): y
+
+1. Add at first position.
+2. Add at kth position.
+3. Delete at kth position.
+4. Print size of the list.
+5. Convert list to array.
+6. Convert list to set.
+7. Print the list.
+Select an option: 1
+Data to add: 2
+Do you wish to continue (Type y or n): y
+
+1. Add at first position.
+2. Add at kth position.
+3. Delete at kth position.
+4. Print size of the list.
+5. Convert list to array.
+6. Convert list to set.
+7. Print the list.
+Select an option: 1
+Data to add: 1
+Do you wish to continue (Type y or n): y
+
+1. Add at first position.
+2. Add at kth position.
+3. Delete at kth position.
+4. Print size of the list.
+5. Convert list to array.
+6. Convert list to set.
+7. Print the list.
+Select an option: 7
+1 2 3 
+Do you wish to continue (Type y or n): y
+
+1. Add at first position.
+2. Add at kth position.
+3. Delete at kth position.
+4. Print size of the list.
+5. Convert list to array.
+6. Convert list to set.
+7. Print the list.
+Select an option: 2
+Data to add: 4
+Position: 2
+Do you wish to continue (Type y or n): y
+
+1. Add at first position.
+2. Add at kth position.
+3. Delete at kth position.
+4. Print size of the list.
+5. Convert list to array.
+6. Convert list to set.
+7. Print the list.
+Select an option: 7
+1 4 2 3 
+Do you wish to continue (Type y or n): y
+
+1. Add at first position.
+2. Add at kth position.
+3. Delete at kth position.
+4. Print size of the list.
+5. Convert list to array.
+6. Convert list to set.
+7. Print the list.
+Select an option: 3
+Position(to delete): 4
+Do you wish to continue (Type y or n): y
+
+1. Add at first position.
+2. Add at kth position.
+3. Delete at kth position.
+4. Print size of the list.
+5. Convert list to array.
+6. Convert list to set.
+7. Print the list.
+Select an option: 7
+1 4 2 
+Do you wish to continue (Type y or n): 5
+java.util.InputMismatchException
+
+1. Add at first position.
+2. Add at kth position.
+3. Delete at kth position.
+4. Print size of the list.
+5. Convert list to array.
+6. Convert list to set.
+7. Print the list.
+Select an option: 5
+List to array of size 3: 1 4 2 
+Do you wish to continue (Type y or n): y
+
+1. Add at first position.
+2. Add at kth position.
+3. Delete at kth position.
+4. Print size of the list.
+5. Convert list to array.
+6. Convert list to set.
+7. Print the list.
+Select an option: 2
+Data to add: 4
+Position: 4
+Do you wish to continue (Type y or n): y
+
+1. Add at first position.
+2. Add at kth position.
+3. Delete at kth position.
+4. Print size of the list.
+5. Convert list to array.
+6. Convert list to set.
+7. Print the list.
+Select an option: 7
+1 4 2 4 
+Do you wish to continue (Type y or n): y
+
+1. Add at first position.
+2. Add at kth position.
+3. Delete at kth position.
+4. Print size of the list.
+5. Convert list to array.
+6. Convert list to set.
+7. Print the list.
+Select an option: 6
+List to set: 1 2 4 
+Do you wish to continue (Type y or n): n
+ */

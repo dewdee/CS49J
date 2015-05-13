@@ -64,3 +64,39 @@ public class Assignment33 {
 		return line;
 	}
 }
+/*
+Specify path: 
+C:\Users\Mike\Downloads\Desktop\digits_of_pi.txt
+Number of digits of pi to parse:
+10
+Total phone numbers generated: 6
+Task success, all phone numbers are unique.
+
+Specify path: 
+C:\Users\Mike\Downloads\Desktop\digits_of_pi.txt
+Number of digits of pi to parse:
+72
+Total phone numbers generated: 68
+Task success, all phone numbers are unique.
+
+Specify path: 
+C:\Users\Mike\Downloads\Desktop\digits_of_pi.txt
+Number of digits of pi to parse:
+934
+Total phone numbers generated: 925
+Phone numbers are repeated.
+
+Specify path: 
+C:\Users\Mike\Downloads\Desktop\digits_of_pi.txt
+Number of digits of pi to parse:
+6747
+Total phone numbers generated: 6542
+Phone numbers are repeated.
+
+Specify path: 
+C:\Users\Mike\Downloads\Desktop\digits_of_pi.txt
+Number of digits of pi to parse:
+167
+Total phone numbers generated: 163
+Task success, all phone numbers are unique.
+*/

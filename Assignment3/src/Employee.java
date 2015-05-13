@@ -10,6 +10,10 @@ public class Employee{
 	public int getID(){
 		return id;
 	}
+	
+	public String getName(){
+		return name;
+	}
 	public String getData(){
 		return Integer.toString(id) + " " + name;
 	}

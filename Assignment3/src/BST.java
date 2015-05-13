@@ -150,7 +150,23 @@ public class BST{
 		
 		return closest.getEmployee();
 	}
-	public Node getRoot(){
-		return root;
+	public void printRankOrder(){
+		if(root == null)
+			System.out.println("Nothing in tree.");
+		else{
+			System.out.println("Rank Order:");
+			printRankOrder(root, 0);
+			System.out.println("");
+		}
+	}
+	private void printRankOrder(Node leaf, int level){
+		if(leaf != null){
+			level++;
+			printRankOrder(leaf.getRight(),level);
+			for(int i = 0; i < level; i++)
+				System.out.print("	");
+			System.out.printf("%d. %d %s\n", level, leaf.getEmployee().getID(), leaf.getEmployee().getName());
+			printRankOrder(leaf.getLeft(),level);
+		}
 	}
 }

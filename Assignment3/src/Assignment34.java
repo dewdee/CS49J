@@ -69,3 +69,236 @@ public class Assignment34 {
 		}
 	}
 }
+/*
+ * Contents of Enrolled.txt
+Sarah
+John
+Bob
+Jill
+Jack
+Mike
+Sana
+Charlie
+Kate
+Kathy
+Contents of Waitlist.txt
+Noah
+Jason
+Helen
+Ben
+Judy
+George
+Rich
+Toby
+Tom
+Gina
+Enter the names of students who want to drop
+Jack
+Mike
+q
+Enrolled_v1.txt has been created.
+Waitlist_v1.txt has been created.
+
+Contents of Enrolled.txt
+Sarah
+John
+Bob
+Jill
+Jack
+Mike
+Sana
+Charlie
+Kate
+Kathy
+Contents of Waitlist.txt
+Noah
+Jason
+Helen
+Ben
+Judy
+George
+Rich
+Toby
+Tom
+Gina
+Enter the names of students who want to drop
+Charlie
+Katy
+Student Katy does not appear to have enrolled in this class
+Kate
+Kathy
+q
+Enrolled_v1.txt has been created.
+Waitlist_v1.txt has been created.
+Sarah
+John
+Bob
+Jill
+Jack
+Mike
+Sana
+Noah
+Jason
+Helen
+
+Ben
+Judy
+George
+Rich
+Toby
+Tom
+Gina
+
+Contents of Enrolled.txt
+Sarah
+John
+Bob
+Jill
+Jack
+Mike
+Sana
+Charlie
+Kate
+Kathy
+Contents of Waitlist.txt
+Noah
+Jason
+Helen
+Ben
+Judy
+George
+Rich
+Toby
+Tom
+Gina
+Enter the names of students who want to drop
+Noah
+Student Noah does not appear to have enrolled in this class
+Sana
+q
+Enrolled_v1.txt has been created.
+Waitlist_v1.txt has been created.
+
+Sarah
+John
+Bob
+Jill
+Jack
+Mike
+Charlie
+Kate
+Kathy
+Noah
+
+Jason
+Helen
+Ben
+Judy
+George
+Rich
+Toby
+Tom
+Gina
+
+Contents of Enrolled.txt
+Sarah
+John
+Bob
+Jill
+Jack
+Mike
+Sana
+Charlie
+Kate
+Kathy
+Contents of Waitlist.txt
+Noah
+Jason
+Helen
+Ben
+Judy
+George
+Rich
+Toby
+Tom
+Gina
+Enter the names of students who want to drop
+Jack
+q
+Enrolled_v1.txt has been created.
+Waitlist_v1.txt has been created.
+
+Sarah
+John
+Bob
+Jill
+Mike
+Sana
+Charlie
+Kate
+Kathy
+Noah
+
+
+Jason
+Helen
+Ben
+Judy
+George
+Rich
+Toby
+Tom
+Gina
+
+Contents of Enrolled.txt
+Sarah
+John
+Bob
+Jill
+Jack
+Mike
+Sana
+Charlie
+Kate
+Kathy
+Contents of Waitlist.txt
+Noah
+Jason
+Helen
+Ben
+Judy
+George
+Rich
+Toby
+Tom
+Gina
+Enter the names of students who want to drop
+Sarah
+Mike
+Jack
+Jill
+Kathy
+Kate
+q
+Enrolled_v1.txt has been created.
+Waitlist_v1.txt has been created.
+
+John
+Bob
+Sana
+Charlie
+Noah
+Jason
+Helen
+Ben
+Judy
+George
+
+
+Rich
+Toby
+Tom
+Gina
+
+ * */
+ 

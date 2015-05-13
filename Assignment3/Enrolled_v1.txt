@@ -1,10 +1,10 @@
 John
 Bob
-Jill
-Mike
 Sana
 Charlie
-Kate
-Kathy
 Noah
 Jason
+Helen
+Ben
+Judy
+George
