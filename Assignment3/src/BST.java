@@ -4,7 +4,7 @@ public class BST{
 		root = null;
 	}
 	public boolean insert(Employee person){
-		if(search(person) == null){
+		if(search(person.getID()) == null){
 			root = insert(root, person);
 			System.out.println(person.getData() + " has been inserted into the tree.");
 		}
@@ -33,34 +33,31 @@ public class BST{
 		}
 		return leaf;
 	}
-	public boolean delete(Employee person){
+	public boolean delete(int ID){		
 		if(root == null){
 			System.out.println("Tree is empty.");
 			return false;
-		}	
-		else if(search(person) != person){
-			//System.out.println(person.getData() + " does not exist in the tree, closest ID is: " + temp.getData());
+		}
+		else if(search(ID) == null){
+			Employee person = getClosestEmployee(ID);
+			System.out.println(ID + " does not exist in the tree, closest employee is: " + person.getData());
 			return false;
 		}
 		else{
-			root = delete(root, person);
-			System.out.println(person.getData() + " has been deleted.");
+			System.out.println(root.getEmployee().getData() + " has been deleted.");
+			root = delete(root, ID);
 		}
 		return true;
 	}
-	private Node delete(Node leaf, Employee person){
+	private Node delete(Node leaf, int ID){
 		Node temp, newRoot;
 		Employee tempData;
 		//looking for node
-		if(person.getID() < leaf.getEmployee().getID()){
-			leaf.setLeft(delete(leaf.getLeft(), person));
-
-		}
-		else if (person.getID() > leaf.getEmployee().getID()){
-			leaf.setRight(delete(leaf.getRight(), person));
-		}
+		if(ID < leaf.getEmployee().getID())
+			leaf.setLeft(delete(leaf.getLeft(), ID));
+		else if (ID > leaf.getEmployee().getID())
+			leaf.setRight(delete(leaf.getRight(), ID));
 		else{ //found node
-
 			//node with only one child or no child
 			if(leaf.getLeft() == null){
 				newRoot = leaf.getRight();
@@ -79,26 +76,26 @@ public class BST{
 					tempData = leaf.getEmployee(); //swapping data around
 					leaf.setData(temp.getEmployee());
 					temp.setData(tempData);
-					leaf.setLeft(delete(leaf.getLeft(), temp.getEmployee()));
+					leaf.setLeft(delete(leaf.getLeft(), ID));
 				}
 			}
 		}
 		return leaf;
 	}
-	public Employee search(Employee person){
+	public Employee search(int ID){
 		if(root != null)
-			return search(root, person);
+			return search(root, ID);
 		else
 			return null; //nothing
 	}
-	private Employee search(Node leaf, Employee person){
+	private Employee search(Node leaf, int ID){
 		if(leaf == null)
 			return null; //nothing
 		if(root != null){
-			if(person.getID() < leaf.getEmployee().getID())
-				return search(leaf.getLeft(), person);
-			else if(person.getID() > leaf.getEmployee().getID())
-				return search(leaf.getRight(), person);
+			if(ID < leaf.getEmployee().getID())
+				return search(leaf.getLeft(), ID);
+			else if(ID > leaf.getEmployee().getID())
+				return search(leaf.getRight(), ID);
 			else
 				return leaf.getEmployee();
 		}
@@ -128,26 +125,26 @@ public class BST{
 
 	    return pClosest;
 	}*/
-	public Employee getClosestEmployee(Employee person){
-		return getClosestEmployee(root,person);
+	public Employee getClosestEmployee(int ID){
+		return getClosestEmployee(root, ID);
 	}
-	private Employee getClosestEmployee(Node root, Employee person){
+	private Employee getClosestEmployee(Node root, int ID){
 		Node closest = null;
 		
 		int minDistance = Integer.MAX_VALUE;
 		Node curr = root;
 		
 		while(curr != null){
-			int distance = Math.abs(curr.getEmployee().getID() - person.getID());
+			int distance = Math.abs(curr.getEmployee().getID() - ID);
 			if(distance < minDistance){
 				minDistance = distance;
 				closest = curr;
 			}
 			if(distance == 0)
 				break;
-			if(curr.getEmployee().getID() > person.getID())
+			if(curr.getEmployee().getID() > ID)
 				curr = curr.getLeft();
-			else if(curr.getEmployee().getID() < person.getID())
+			else if(curr.getEmployee().getID() < ID)
 				curr = curr.getRight();
 		}
 		

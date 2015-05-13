@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Stack;
+import java.util.StringTokenizer;
 
 
 public class Assignment31 {
@@ -11,37 +12,58 @@ public class Assignment31 {
 		Stack<Integer> operand = new Stack<Integer>();
 
 		try{
-			parseInput(line,operator,operand);
-			System.out.println(calculate(operator, operand));
+			System.out.println(parseInput(line,operator,operand));
 		}
 		catch(Exception e){
 			System.out.println(e);
 		}
-		
+
 		input.close();
 	}
-	public static void parseInput(String input, Stack<String> operator, Stack<Integer> operand) throws Exception{
-		String[] tokens = input.split("&^|\\s+");
-		int size = tokens.length;
-		//going backwards because of stack LIFO rule
-		for(int i = 0; i < size; i++){
-			//checking for less than size - 1 and at size - 1 to avoid array out of bounds exception
-			if(i > size - 1){
-				//checks for two operators/operands in a row
-				if(!Character.isLetter(tokens[i].charAt(0)) && !Character.isLetter(tokens[i + 1].charAt(0)))
-					throw new Exception("Two numbers in a row is not a valid input.");
-				else if(Character.isLetter(tokens[i].charAt(0)) && Character.isLetter(tokens[i + 1].charAt(0))){
-					throw new Exception("Two operators in a row is not a valid input.");
-				}
+	public static int parseInput(String input, Stack<String> operator, Stack<Integer> operand) throws Exception{
+		String token;
+		int result = 0;
+
+		input = input.replace(" ", ""); // replacing all spaces in the expression
+		StringTokenizer tokens = new StringTokenizer(input, "&^|", true); //converting expression into tokens
+
+		while(tokens.hasMoreTokens()){
+			token = tokens.nextToken();
+			//add integers to proper stack
+			if(Character.isDigit(token.charAt(0)))
+				operand.push(Integer.parseInt(token));
+			//if there aren't at least two operators in stack, theres nothing to do
+			while(operator.size() > 1){
+				String op = operator.pop();
+				int first = operand.pop();
+				int second = operand.pop();
+				result = operations(op, first, second);
+				operand.push(result);	
 			}
-			if(tokens[i].equals("&") || tokens[i].equals("^") || tokens[i].equals("|"))
-				operator.add(tokens[i]);
-			else if(Character.isDigit(tokens[i].charAt(0)))
-				operand.add(Integer.parseInt(tokens[i]));
-			else{
-				throw new Exception("Not a valid operator.");
+			if(isOperator(token.charAt(0))){
+				while (!operator.isEmpty() && precedence(operator.peek().charAt(0)) <= precedence(token.charAt(0))){
+					String op = operator.pop();
+					int first = operand.pop();
+					int second =  operand.pop();
+					result = operations(op, first, second);
+					operand.push(result);
+				}
+				operator.push(token); //add operator to stack
 			}
 		}
+		//get remains from the stacks and calculate for final result
+		String op = operator.pop();
+		int first = operand.pop();
+		int second = operand.pop();
+		result = operations(op, first, second);
+
+		return result;
+	}
+	public static boolean isOperator(char op){
+		if(op == '&' || op == '^' || op == '|')
+			return true;
+
+		return false;
 	}
 	public static int precedence(char operator){
 		switch (operator) {
@@ -66,23 +88,5 @@ public class Assignment31 {
 			result = operand1 | operand2;
 
 		return result; 
-	}
-	public static int calculate(Stack<String> operator, Stack<Integer> operand){
-		int result = 0;
-		
-		//there are more operands than operators, so we check until operator is empty
-		
-		//&& priority(operator.peek()) >= priority(token)
-		int first = operand.pop();
-		int second = operand.pop();
-		String op = operator.pop();
-		while(!operator.isEmpty() && precedence(operator.peek().charAt(0)) <= precedence(op.charAt(0))){	
-			;
-			result = operations(op, first, second);
-			//readd result to the bottom, so continues evaluating "left to right"
-			operand.push(result);
-		}
-		result = operand.pop();
-		return result;
 	}
 }
